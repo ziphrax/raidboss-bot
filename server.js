@@ -1,0 +1,14 @@
+var express = require('express'),
+    app = express(),
+    port = 3000;
+
+app.get('/',function(req,res){
+  res.send('hello world');
+});
+
+var server = app.listen(port,function(err){
+  if(err){
+    console.log(err);
+  }
+  console.log('RaidBoss-Bot Server is listening on port %s',port);
+});
