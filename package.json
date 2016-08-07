@@ -17,7 +17,11 @@
   },
   "homepage": "https://github.com/ziphrax/raidboss-bot#readme",
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "crypto": "0.0.3",
     "express": "^4.14.0",
-    "mongoose": "^4.5.8"
+    "https": "^1.0.0",
+    "mongoose": "^4.5.8",
+    "request": "^2.74.0"
   }
 }
