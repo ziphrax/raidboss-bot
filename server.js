@@ -8,12 +8,14 @@ var express = require('express'),
     crypto = require('crypto'),
     https = require('https'),
     FB = require('./fb_messenger'),
+    morgan = require('morgan'),
     request = require('request');
 
 app.set('port', process.env.PORT || 5000);
 
 app.use(bodyParser.json({ verify: FB.verifyRequestSignature }));
 app.use(express.static('client'));
+app.use(morgan('dev'));
 
 app.get('/webhook', function(req, res) {
   if (req.query['hub.mode'] === 'subscribe' &&
