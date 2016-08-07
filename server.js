@@ -241,6 +241,7 @@ function receivedMessage(event) {
       case 'Look for trouble':
       case 'lft':
         sendTextMessage(senderID, 'Watch Out! A raid boss appears.');
+        sendImageMessage(senderID);
         break;
       default:
         sendTextMessage(senderID, messageText);
