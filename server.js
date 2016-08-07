@@ -186,7 +186,7 @@ function receivedMessage(event) {
     // keywords and send back the corresponding example. Otherwise, just echo
     // the text we received.
     switch (messageText) {
-      case 'image':
+      /*case 'image':
         sendImageMessage(senderID);
         break;
 
@@ -237,7 +237,11 @@ function receivedMessage(event) {
       case 'account linking':
         sendAccountLinking(senderID);
         break;
-
+        */
+      case 'Look for trouble':
+      case 'lft':
+        sendTextMessage(senderID, 'Watch Out! A raid boss appears.');
+        break;
       default:
         sendTextMessage(senderID, messageText);
     }
