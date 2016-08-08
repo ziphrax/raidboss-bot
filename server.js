@@ -9,12 +9,14 @@ var express = require('express'),
     https = require('https'),
     FB = require('./fb_messenger'),
     morgan = require('morgan'),
+    raidboss = require('./models/raidboss'),
     request = require('request');
 
 app.set('port', process.env.PORT || 5000);
 
 app.use(bodyParser.json({ verify: verifyRequestSignature }));
 app.use(express.static('client'));
+app.use('/admin',express.static('admin'));
 app.use(morgan('dev'));
 
 app.get('/webhook', function(req, res) {
@@ -78,6 +80,13 @@ app.get('/authorize', function(req, res) {
     accountLinkingToken: accountLinkingToken,
     redirectURI: redirectURI,
     redirectURISuccess: redirectURISuccess
+  });
+});
+
+app.get('/next',function(req,res){
+  res.json({
+    success:true,
+    name: raidboss.find_random()
   });
 });
 
@@ -240,8 +249,8 @@ function receivedMessage(event) {
         */
       case 'Look for trouble':
       case 'lft':
-        sendTextMessage(senderID, 'Watch Out! A raid boss appears.');
-        sendImageMessage(senderID);
+        var boss_name = raidboss.find_random();
+        sendTextMessage(senderID, 'Watch Out! ' + boss_name +' appears.');
         break;
       default:
         sendTextMessage(senderID, messageText);
