@@ -494,19 +494,19 @@ function sendButtonMessage(recipientId) {
           buttons:[{
             type: "postback",
             title: "Scratch",
-            payload: "PERFORM_SCRATCH"
+            payload: "DEVELOPER_DEFINED_METADATA"
           }, {
             type: "postback",
             title: "Growl",
-            payload: "PERFORM_GROWL"
+            payload: "DEVELOPER_DEFINED_METADATA"
           }, {
             type: "postback",
             title: "Bubble Cannon",
-            payload: "PERFORM_BUBBLE_CANNON"
+            payload: "DEVELOPER_DEFINED_METADATA"
           },{
             type: "postback",
             title: "Windy Stick",
-            payload: "PERFORM_WINDY_STICK"
+            payload: "DEVELOPER_DEFINED_METADATA"
           }]
         }
       }
