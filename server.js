@@ -50,7 +50,7 @@ app.post('/webhook', function (req, res) {
         } else if (messagingEvent.delivery) {
           receivedDeliveryConfirmation(messagingEvent);
         } else if (messagingEvent.postback) {
-          receivedPostback(messagingEvent);
+          performAction(messagingEvent);
         } else if (messagingEvent.read){
           console.log("The user has read the message");
         } else {
@@ -427,6 +427,31 @@ function sendTextMessage(recipientId, messageText) {
   callSendAPI(messageData);
 }
 
+function performAction(event){
+
+  var senderID = event.sender.id;
+  var recipientID = event.recipient.id;
+  var timeOfPostback = event.timestamp;
+
+  // The 'payload' param is a developer-defined field which is set in a postback
+  // button for Structured Messages.
+  var payload = event.postback.payload;
+  var text = '';
+
+  switch(payload){
+    case 'PERFORM_SCRATCH':
+      text = 'You scratch the raid boss.';
+      break;
+    case 'PERFORM_GROWL':
+      text = 'The raid boss feels scared';
+      break;
+    case 'PERFORM_BUBBLE_CANNON':
+      text = 'The bubbles confuse the raid boss.';
+      break;
+  }
+  sendTextMessage(recipientID,text);
+}
+
 /*
  * Send a button message using the Send API.
  *
@@ -691,6 +716,14 @@ function sendAccountLinking(recipientId) {
   };
 
   callSendAPI(messageData);
+}
+
+function retrieveProfileInfo(senderID){
+  request({
+
+  },function(error,response,body){
+
+  });
 }
 
 /*
