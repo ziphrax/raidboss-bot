@@ -722,6 +722,8 @@ function callSendAPI(messageData) {
         recipientId);
       }
     } else {
+      console.log(response);
+      console.log(body);
       console.error(response.error);
     }
   });
