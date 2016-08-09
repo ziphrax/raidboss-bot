@@ -449,7 +449,7 @@ function performAction(event){
       text = 'The bubbles confuse the raid boss.';
       break;
   }
-  sendTextMessage(recipientID,text);
+  sendTextMessage(senderID,text);
 }
 
 /*
