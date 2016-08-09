@@ -454,10 +454,6 @@ function sendButtonMessage(recipientId) {
             type: "postback",
             title: "Bubble Cannon",
             payload: "DEVELOPER_DEFINED_METADATA"
-          },{
-            type: "postback",
-            title: "Windy Stick",
-            payload: "DEVELOPER_DEFINED_METADATA"
           }]
         }
       }
