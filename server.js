@@ -251,9 +251,8 @@ function receivedMessage(event) {
       case 'lft':
         var boss_name = raidboss.find_random();
         sendTextMessage(senderID, 'Watch Out! ' + boss_name +' appears.');
+        sendButtonMessage(senderID);
         break;
-      default:
-        sendTextMessage(senderID, messageText);
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
@@ -491,19 +490,23 @@ function sendButtonMessage(recipientId) {
         type: "template",
         payload: {
           template_type: "button",
-          text: "This is test text",
+          text: "'You have the following moves available'",
           buttons:[{
-            type: "web_url",
-            url: "https://www.oculus.com/en-us/rift/",
-            title: "Open Web URL"
+            type: "postback",
+            title: "Scratch",
+            payload: "PERFORM_SCRATCH"
           }, {
             type: "postback",
-            title: "Trigger Postback",
-            payload: "DEVELOPED_DEFINED_PAYLOAD"
+            title: "Growl",
+            payload: "PERFORM_GROWL"
           }, {
-            type: "phone_number",
-            title: "Call Phone Number",
-            payload: "+16505551234"
+            type: "postback",
+            title: "Bubble Cannon",
+            payload: "PERFORM_BUBBLE_CANNON"
+          },{
+            type: "postback",
+            title: "Windy Stick",
+            payload: "PERFORM_WINDY_STICK"
           }]
         }
       }
