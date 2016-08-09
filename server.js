@@ -258,7 +258,7 @@ function receivedPostback(event) {
 
   // When a postback is called, we'll send a message back to the sender to
   // let them know it was successful
-  sendTextMessage(senderID, "Postback called");
+  sendTextMessage(senderID, "Postback called: " + payload);
 }
 
 /*
@@ -445,15 +445,15 @@ function sendButtonMessage(recipientId) {
           buttons:[{
             type: "postback",
             title: "Scratch",
-            payload: "DEVELOPER_DEFINED_METADATA"
+            payload: "PERFORM_SCRATCH"
           }, {
             type: "postback",
             title: "Growl",
-            payload: "DEVELOPER_DEFINED_METADATA"
+            payload: "PERFORM_GROWL"
           }, {
             type: "postback",
             title: "Bubble Cannon",
-            payload: "DEVELOPER_DEFINED_METADATA"
+            payload: "PERFORM_BUBBLE_CANNON"
           }]
         }
       }
